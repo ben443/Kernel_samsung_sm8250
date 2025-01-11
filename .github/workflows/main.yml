@@ -1,0 +1,22 @@
+name: r8q
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-kernel:
+    name: Build Kernel
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Build
+        uses: dabao1955/kernel_build_action@main
+        with:
+          kernel-url: https://github.com/ben443/Kernel_samsung_sm8250.git
+          kernel-branch: stock-11
+          config: /vendor/r8q/kona_sec_r8q_can_singlex_defconfig
+          arch: arm64
+          aosp-gcc: true
+          aosp-clang: true
+          android-version: 13
+          aosp-clang-version: r407598
+          nethunter: false
